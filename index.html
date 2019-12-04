@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Latest compiled and minified CSS -->
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.js"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+    <!-- CSS -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css"> -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>SYSTEMIZE ENROLLMENT FORM</title>
+</head>
+<style>
+    body {
+        color: #000;
+        font-size: 15px;
+        line-height:100%;
+        width: 100%;
+        word-break: break-word;
+        background-image: url("https://news.continuingstudies.wisc.edu/wp-content/uploads/photo_video-job-interview.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+     }
+    
+    .delete{
+        width: 80px;
+    }
+    .edit{
+        width: 80px;
+    }
+    h1{
+        color: #fff;
+        text-align: center;
+       
+    }
+  
+</style>
+
+<body>
+    
+
+    <center>
+        <div style="margin-top: 20px;display:none;width : 600px;" id="showForm" class="card bg-muted container">
+            <div class="card-header text-black" style="font-size: 30px; height: 50px;">ADD STUDENT INFORMATION</div>
+            <div class="card-body text-center ">
+                <form action="" class="form was-validated">
+                    <h5>STUDENT NAME</h5>
+                    <input type="text" class="form-control" name="first" placeholder="First Name" required autofocus><br>
+                    <input type="text" class="form-control" name="middle" placeholder="Middle Name" required autofocus><br>
+                    <input type="text" class="form-control" name="last" placeholder="Last Name" required autofocus><br>
+                    <h5>AGE</h5>
+                    <input class="form-control" name="age" placeholder="Age" required><br>
+                    <h5>BIRTH DATE</h5>
+                    <input type="text" class="form-control" name="month" placeholder="Month" required><br>
+                    <input type="number" class="form-control" name="day" placeholder="Day" min="1" max="31" required><br>
+                    <input type="number" class="form-control" name="year" placeholder="Year" min="1960" max="2030"
+                        required>
+
+                    <h5>GENDER</h5>
+                    <input type="text" class="form-control" name="gender" placeholder="Gender" required autofocus><br>
+
+                    <h5>ADDRESS</h5>
+                    <input type="text" class="form-control" name="street" placeholder="Barangay" required autofocus><br>
+                    <input type="text" class="form-control" name="city" placeholder="City" required autofocus><br>
+                    <input type="text" class="form-control" name="state" placeholder="State/Province" required
+                        autofocus><br>
+                    <input type="text" class="form-control" name="country" placeholder="Country" required autofocus><br>
+                    <h5>EMAIL ADDRESS</h5>
+                    <input type="text" class="form-control" name="email" placeholder="Email Address" required autofocus><br>
+                    <h5>PHONE NUMBER</h5>
+                    <input class="form-control" name="phone" placeholder="Phone Number" required autofocus><br>
+                    <h5>GRADE LEVEL</h5>
+                    <input type="number" class="form-control" name="grade" placeholder="Grade Level" min="7" max="12"
+                        required autofocus><br>
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <button id="addItem" class="btn btn-success">SUBMIT</button>
+                <button id="cancel" class="btn btn-danger">CANCEL</button>
+            </div>
+        </div>
+        <!-- updateForm -->
+        <br>
+        <div style="margin-top:20px; display:none;width : 600px;" id="updateForm" class="card bg-muted container">
+            <div class="card-header text-black" style="font-size: 30px; height: 50px;">UPDATE STUDENT INFORMATION</div>
+            <div class="card-body text-center">
+                <form action="" class="form was-validated">
+                    <input type="text" class="form-control" name="firstUpdate" placeholder="Name" required autofocus><br>
+                    <input type="text" class="form-control" name="middleUpdate" placeholder="Name" required autofocus><br>
+                    <input type="text" class="form-control" name="lastUpdate" placeholder="Name" required autofocus><br>
+
+                    <h5>AGE</h5>
+                    <input type="number" class="form-control" name="ageUpdate" placeholder="Age" required><br>
+
+                    <h5>BIRTH DATE</h5>
+                    <input type="text" class="form-control" name="monthUpdate" placeholder="Month" required><br>
+                    <input type="number" class="form-control" name="dayUpdate" placeholder="Day" min="1" max="31"
+                        required><br>
+                    <input type="number" class="form-control" name="yearUpdate" placeholder="Year" min="1960" max="2030"
+                        required>
+
+                    <h5>GENDER</h5>
+                    <input type="text" class="form-control" name="genderUpdate" placeholder="Gender" required autofocus><br>
+
+                    <h5>ADDRESS</h5>
+                    <input type="text" class="form-control" name="streetUpdate" placeholder="Barangay" required
+                        autofocus><br>
+                    <input type="text" class="form-control" name="cityUpdate" placeholder="City" required autofocus><br>
+                    <input type="text" class="form-control" name="stateUpdate" placeholder="State/Province" required
+                        autofocus><br>
+                    <input type="text" class="form-control" name="countryUpdate" placeholder="Country" required
+                        autofocus><br>
+
+
+                    <h5>EMAIL ADDRESS</h5>
+                    <input type="text" class="form-control" name="emailUpdate" placeholder="Email Address" required
+                        autofocus><br>
+                    <h5>PHONE NUMBER</h5>
+                    <input type="number" class="form-control" name="phoneUpdate" placeholder="Phone Number" required
+                        autofocus><br>
+                    <h5>GRADE LEVEL</h5>
+                    <input type="number" class="form-control" name="gradeUpdate" placeholder="Grade Level" min="7" max="12"
+                        required autofocus><br>
+
+                </form>
+            </div>
+            <div class="card-footer">
+                <button id="updateItem" class="btn btn-success">UPDATE</button>
+                <button id="updateCancel" class="btn btn-danger">CANCEL</button>
+            </div>
+        </div>
+
+    </center>
+
+    <div class="container" style="display:inline;">
+        <div class="row">
+      
+       <div class="col-md-12">
+            <h1>SYSTEMIZE ENROLLMENT FORM</h1>
+       </div>
+        </div>
+        <br><br><br>
+        <div id="showTable" class="row">
+            <div class=" col-md-3">
+                    <button id="add" class="btn btn-outline-primary rounded-pill btn-block shadow-sm" data-toggle="modal"
+                        data-target="#myModal">ADD
+                        STUDENT</button>
+            </div>
+            <br><br>
+            <div  class="col-md-5">
+                    <input id="searchItem" type="email" placeholder="Whom Are You Looking For?" class="form-control form-control-underlined">
+            </div>
+            <div class=" col-md-4"></div>
+            
+            <table class="table text-center table-hover" style="width: 100%; background-color: #F6A7C1;  ">
+                <thead class="thead thead-light">
+                    <th> Name</th>
+                    <th>Age</th>
+                    <th>Birth Date</th>
+                    <th>Gender</th>
+                    <th> Address</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Grade</th>
+                    <th>Activity</th>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var status = true;
+            var allStudents;
+
+            //retrieveAllData Function
+            function retrieveAllData() {
+                $.ajax({
+                    url: "item/retrieve/all",
+                    crossDomain: true,
+                    type: "GET",
+                    success: function (data) {
+                        allStudents = data
+                        $('tbody').empty();
+                        data.forEach(element => {
+                            addRow(element);
+                        });
+                    },
+                    error: function (e) {
+                        console.log(e)
+                    }
+                })
+            }
+
+            //invoking retrieveAllData function
+            retrieveAllData();
+
+            //click add button
+            $("#add").click(function (e) {
+                e.preventDefault();
+                $("#showForm").show();
+                $("#showTable").hide();
+            })
+
+            //click cancel button
+            $("#cancel").on('click', function (e) {
+                e.preventDefault();
+                $("#showForm").hide();
+                $("#showTable").show();
+                let first = $('input[name="first"]').val('');
+                let middle = $('input[name="middle"]').val('');
+                let last = $('input[name="last"]').val('');
+                let age = $('input[name="age"]').val('');
+                let month = $('input[name="month"]').val('');
+                let day = $('input[name="day"]').val('');
+                let year = $('input[name="year"]').val('');
+                let gender = $('input[name="gender"]').val('');
+                let street = $('input[name="street"]').val('');
+                let city = $('input[name="city"]').val('');
+                let state = $('input[name="state"]').val('');
+                let country = $('input[name="country"]').val('');
+                let email = $('input[name="email"]').val('');
+                let phone = $('input[name="phone"]').val('');
+                let grade = $('input[name="grade"]').val('');
+
+
+            })
+
+            //click cancel button
+            $("#updateCancel").on('click', function (e) {
+                e.preventDefault();
+                $("#updateForm").hide();
+                $("#showTable").show();
+            })
+
+
+            //addRow function
+            function addRow(data) {
+                var tr = $("<tr>", {
+                    id: data._id,
+                    first: data.first,
+                    middle: data.middle,
+                    last: data.last,
+                    age: data.age,
+                    month: data.month,
+                    day: data.day,
+                    year: data.year,
+                    gender: data.gender,
+                    street: data.street,
+                    city: data.city,
+                    state: data.state,
+                    country: data.country,
+                    email: data.email,
+                    phone: data.phone,
+                    grade: data.grade,
+                });
+                var btns = $("<div>").append($("<button>", {
+                    class: "btn btn-info btn-md edit"
+                }).text("Edit"),
+                    $("<button>", {
+                        class: "btn btn-danger delete btn-md",
+                    }).text("Delete")
+                )
+                $(tr).append(
+                    $("<td>").text(data.first + " " + data.middle + " " + data.last),
+                    $("<td>").text(data.age),
+                    $("<td>").text(data.month + " " + data.day + " " + data.year),
+                    $("<td>").text(data.gender),
+                    $("<td>").text(data.street + " " + data.city + " " + data.state + " " + data.country),
+                    $("<td>").text(data.email),
+                    $("<td>").text(data.phone),
+                    $("<td>").text(data.grade),
+                    $("<td>").append(btns)
+                ).appendTo($('tbody'));
+            }
+
+
+
+            function checkInput(label) {
+                if (!(isNaN($(label).val()))) {
+                    alert('Item name must not be a number!');
+                    $('input[name="first"]').val('');
+                    $('input[name="middle"]').val('');
+                    $('input[name="last"]').val('');
+                    $('input[name="age"]').val('');
+                    $('input[name="month"]').val('');
+                    $('input[name="day"]').val('');
+                    $('input[name="year"]').val('');
+                    $('input[name="gender"]').val('');
+                    $('input[name="street"]').val('');
+                    $('input[name="city"]').val('');
+                    $('input[name="state"]').val('');
+                    $('input[name="country"]').val('');
+                    $('input[name="email"]').val('');
+                    $('input[name="phone"]').val('');
+                    $('input[name="grade"]').val('');
+
+
+
+
+                }
+            }
+
+            //addItemEvent
+            $("#addItem").on('click', function (e) {
+                e.preventDefault(e);
+                var boolean = true;
+                var first = $('input[name="first"]');
+                var middle = $('input[name="middle"]');
+                var last = $('input[name="last"]');
+                var age = $('input[name="age"]');
+                var month = $('input[name="month"]');
+                var day = $('input[name="day"]');
+                var year = $('input[name="year"]');
+                var gender = $('input[name="gender"]');
+                var street = $('input[name="street"]');
+                var city = $('input[name="city"]');
+                var state = $('input[name="state"]');
+                var country = $('input[name="country"]');
+                var email = $('input[name="email"]');
+                var phone = $('input[name="phone"]');
+                var grade = $('input[name="grade"]');
+
+                //iterate all input fields
+                $('#showForm input').each(function () {
+                    if ($(this).val() == "") {
+                        boolean = false;
+                    }
+                })
+                if (boolean == true) {
+                    $.ajax({
+                        url: "item/create",
+                        crossDomain: true,
+                        type: "POST",
+                        data: {
+                            first: first.val(),
+                            middle: middle.val(),
+                            last: last.val(),
+                            age: age.val(),
+                            month: month.val(),
+                            day: day.val(),
+                            year: year.val(),
+                            gender: gender.val(),
+                            street: street.val(),
+                            city: city.val(),
+                            state: state.val(),
+                            country: country.val(),
+                            email: email.val(),
+                            phone: phone.val(),
+                            grade: grade.val()
+
+
+
+                        },
+                        success: function (data) {
+                            addRow(data);
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Success!',
+                                text: "Successfully Enrolled!",
+                                confirmButtonColor: '#3297a',
+                            })
+                        },
+                        error: function (e) {
+                            console.log(e);
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Oops...',
+                                text: 'Item already exists in the list!',
+                            })
+                        }
+                    })
+
+
+
+                    first.val('');
+                    middle.val('');
+                    last.val('');
+                    age.val('');
+                    month.val('');
+                    day.val('');
+                    year.val('');
+                    gender.val('');
+                    street.val('');
+                    city.val('');
+                    state.val('');
+                    country.val('');
+                    email.val('');
+                    phone.val('');
+                    grade.val('');
+
+
+                    $("#showForm").hide();
+                    $("#showTable").show();
+                }
+                else {
+                    alert('All fields must be filled!')
+                }
+
+            });
+
+            //remove Item on Tbl
+            var confirm= true
+            $(document).on("click", ".delete", function () {
+                // alert($(this).parent().parent().parent().attr("id"))
+                $(this).parent().parent().parent().fadeOut("slow");
+                deleteItem($(this).parent().parent().parent().attr("id"));
+            })
+
+            //remove Item function
+            function deleteItem(id) {
+                $.ajax({
+                    url: "item/delete/" + id + "",
+                    crossDomain: true,
+                    type: "DELETE",
+                    // success: function (data) {
+                    //     console.log(data);
+                    //     allStudents.filter(student => student._id != id)
+                    // },
+                    // error: function (e) {
+                    //     console.log(e)
+                    // }
+                    
+
+                    success: function (data) {
+                            allStudents.filter(student => student._id != id)
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Success!',
+                                text: "Successfully Deleted!",
+                                confirmButtonColor: '#3297a',
+                            })
+                        },
+                        error: function (e) {
+                            console.log(e);
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Oops...',
+                                text: 'Student is not deleted!',
+                            })
+                        }
+                })
+            }
+
+
+            //update Item on Tbl
+            var updateId;
+            $(document).on("click", ".edit", function () {
+                status = false;
+                retrieveOneItem($(this).parent().parent().parent().attr("id"));
+                updateId = $(this).parent().parent().parent().attr("id");
+                $("#updateForm").show();
+                $("#showTable").hide();
+
+            })
+
+
+
+
+            //update Item function
+            function updateItem(id) {
+                var first = $('input[name="firstUpdate"]');
+                // checkInput(item);
+                var middle = $('input[name="middleUpdate"]');
+                var last = $('input[name="lastUpdate"]');
+                var age = $('input[name="ageUpdate"]');
+                var month = $('input[name="monthUpdate"]');
+                var day = $('input[name="dayUpdate"]');
+                var year = $('input[name="yearUpdate"]');
+                var gender = $('input[name="genderUpdate"]');
+                var street = $('input[name="streetUpdate"]');
+                var city = $('input[name="cityUpdate"]');
+                var state = $('input[name="stateUpdate"]');
+                var country = $('input[name="countryUpdate"]');
+                var email = $('input[name="emailUpdate"]');
+                var phone = $('input[name="phoneUpdate"]');
+                var grade = $('input[name="gradeUpdate"]');
+
+
+
+                $.ajax({
+                    url: "item/update/" + id + "",
+                    crossDomain: true,
+                    type: "PUT",
+                    data: {
+                        first: first.val(),
+                        middle: middle.val(),
+                        last: last.val(),
+                        age: age.val(),
+                        month: month.val(),
+                        day: day.val(),
+                        year: year.val(),
+                        gender: gender.val(),
+                        street: street.val(),
+                        city: city.val(),
+                        state: state.val(),
+                        country: country.val(),
+                        email: email.val(),
+                        phone: phone.val(),
+                        grade: grade.val(),
+
+
+                    },
+                    // success: function (data) {
+                    //     console.log(data);
+                    // },
+                    // error: function (e) {
+                    //     console.log(e)
+                    // }
+                    success: function (data) {
+                          
+                            Swal.fire({
+                                type: 'success',
+                                title: 'Success!',
+                                text: "Successfully Updated!",
+                                confirmButtonColor: '#3297a',
+                            })
+                        },
+                        error: function (e) {
+                            console.log(e);
+                            Swal.fire({
+                                type: 'error',
+                                title: 'Oops...',
+                                text: 'Nothing Updated!',
+                            })
+                        }
+                })
+            }
+
+            $(document).on("click", "#updateItem", function () {
+                updateItem(updateId);
+                retrieveAllData();
+                $("#updateForm").hide();
+                $("#showTable").show();
+            })
+
+
+            //retrieve one item function
+            function retrieveOneItem(id) {
+                $.ajax({
+                    url: "item/retrieve/" + id + "",
+                    crossDomain: true,
+                    type: "GET",
+                    success: function (data) {
+                        $('input[name="firstUpdate"]').val(data.first);
+                        $('input[name="middleUpdate"]').val(data.middle);
+                        $('input[name="lastUpdate"]').val(data.last);
+                        $('input[name="ageUpdate"]').val(data.age);
+                        $('input[name="monthUpdate"]').val(data.month);
+                        $('input[name="dayUpdate"]').val(data.day);
+                        $('input[name="yearUpdate"]').val(data.year);
+                        $('input[name="genderUpdate"]').val(data.gender);
+                        $('input[name="streetUpdate"]').val(data.street);
+                        $('input[name="cityUpdate"]').val(data.city);
+                        $('input[name="stateUpdate"]').val(data.state);
+                        $('input[name="countryUpdate"]').val(data.country);
+                        $('input[name="emailUpdate"]').val(data.email);
+                        $('input[name="phoneUpdate"]').val(data.phone);
+                        $('input[name="gradeUpdate"]').val(data.grade);
+
+                    },
+                    error: function (e) {
+                        console.log(e)
+                    }
+                })
+            }
+
+            $("#searchItem").keyup(function () {
+                // $('tbody').empty();
+
+                let search = $('#searchItem').val().toLowerCase();
+                // console.log("searching " + search)
+                $("tbody tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(search) > -1)
+                });
+
+            })
+
+
+
+
+
+        });
+    </script>
+
+</body>
+
+</html>
