@@ -13,7 +13,8 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.8/css/jquery.dataTables.min.css">
     <!-- CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css"> -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
@@ -71,7 +72,7 @@ h3{
                 <div class="carousel-caption">
                     <h3 class="h3-responsive">“Let us remember: One book, one pen, one child and one teacher can change
                         the world.”</h3>
-                        <h1>SYSTEMIZE ENROLLMENT FORM</h1>
+                    <h1>SYSTEMIZE ENROLLMENT FORM</h1>
                 </div>
             </div>
             <div class="carousel-item">
@@ -83,7 +84,7 @@ h3{
                 <div class="carousel-caption">
                     <h3 class="h3-responsive">“School bells are ringing loud and clear; vacation's over, school is
                         here.”</h3>
-                        <h1>SYSTEMIZE ENROLLMENT FORM</h1>
+                    <h1>SYSTEMIZE ENROLLMENT FORM</h1>
                 </div>
             </div>
             <div class="carousel-item">
@@ -166,6 +167,7 @@ h3{
 
                     <h5>BIRTH DATE</h5>
                     <input type="text" class="form-control" name="monthUpdate" placeholder="Month" required><br>
+                   
                     <input type="number" class="form-control" name="dayUpdate" placeholder="Day" min="1" max="31"
                         required><br>
                     <input type="number" class="form-control" name="yearUpdate" placeholder="Year" min="1960" max="2030"
@@ -240,6 +242,9 @@ h3{
         $(document).ready(function () {
             var status = true;
             var allStudents;
+            $('.table').dataTable({
+                "searching": false
+            });
 
             //retrieveAllData Function
             function retrieveAllData() {
@@ -302,7 +307,7 @@ h3{
                 $("#updateForm").hide();
                 $("#showTable").show();
                 $(".carousel").show();
-                
+
             })
 
 
