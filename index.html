@@ -52,7 +52,14 @@
 h3{
     color: #140F10;
 }
-  
+.form-control{
+    width: 100%;
+    height:40px;
+   
+}
+#showForm, #updateForm{
+    background-color:#F0C5D5
+}
 </style>
 
 <body>
@@ -111,7 +118,7 @@ h3{
 
     <center>
         <div style="margin-top: 20px;display:none;width : 600px;" id="showForm" class="card bg-muted container">
-            <div class="card-header text-black" style="font-size: 30px; height: 50px;">ADD STUDENT INFORMATION</div>
+            <div  style="font-size: 30px; margin-top: 20px ">ADD STUDENT INFORMATION</div>
             <div class="card-body text-center ">
                 <form action="" class="form was-validated">
                     <h5>STUDENT NAME</h5>
@@ -131,8 +138,8 @@ h3{
 
                     <h5>ADDRESS</h5>
                     <input type="text" class="form-control" name="street" placeholder="Barangay" required autofocus><br>
-                    <input type="text" class="form-control" name="city" placeholder="City" required autofocus><br>
-                    <input type="text" class="form-control" name="state" placeholder="State/Province" required
+                    <input type="text" class="form-control" name="city" placeholder="City/Municipality" required autofocus><br>
+                    <input type="text" class="form-control" name="state" placeholder="Province" required
                         autofocus><br>
                     <input type="text" class="form-control" name="country" placeholder="Country" required autofocus><br>
                     <h5>EMAIL ADDRESS</h5>
@@ -147,7 +154,7 @@ h3{
 
                 </form>
             </div>
-            <div class="card-footer">
+            <div >
                 <button id="addItem" class="btn btn-outline-success">SUBMIT</button>
                 <button id="cancel" class="btn btn-outline-danger">CANCEL</button>
             </div>
@@ -179,8 +186,8 @@ h3{
                     <h5>ADDRESS</h5>
                     <input type="text" class="form-control" name="streetUpdate" placeholder="Barangay" required
                         autofocus><br>
-                    <input type="text" class="form-control" name="cityUpdate" placeholder="City" required autofocus><br>
-                    <input type="text" class="form-control" name="stateUpdate" placeholder="State/Province" required
+                    <input type="text" class="form-control" name="cityUpdate" placeholder="City/Municipality" required autofocus><br>
+                    <input type="text" class="form-control" name="stateUpdate" placeholder="Province" required
                         autofocus><br>
                     <input type="text" class="form-control" name="countryUpdate" placeholder="Country" required
                         autofocus><br>
@@ -219,7 +226,7 @@ h3{
             </div>
             <div class=" col-md-4"></div>
 
-            <table class="table text-center table-hover" style="width: 100%; background-color: #F6A7C1;  ">
+            <table class="table text-center table-hover" style="width: 100%; background-color: #F0C5D5;  ">
                 <thead class="thead thead-light">
                     <th> Name</th>
                     <th>Age</th>
